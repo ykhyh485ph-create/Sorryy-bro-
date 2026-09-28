@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Sagar ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #dff6ff, #f8e8ff);
+  overflow: hidden;
+}
+
+.card {
+  width: 85%;
+  max-width: 420px;
+  background: rgba(255,255,255,0.9);
+  padding: 35px 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+h1 {
+  color: #4b4b8f;
+  font-size: 34px;
+}
+
+p {
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+button {
+  border: none;
+  padding: 14px 20px;
+  margin: 10px;
+  border-radius: 30px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #6c63ff;
+  color: white;
+}
+
+#no {
+  background: #555;
+  color: white;
+  position: fixed;
+}
+
+.heart {
+  position: fixed;
+  font-size: 24px;
+  animation: fall 5s linear infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="main">
+
+  <div style="font-size:55px;">🥺💙</div>
+
+  <h1>I'm Sorry, Sagar!</h1>
+
+  <p>
+    Okay Sagar... I admit it. 😭
+  </p>
+
+  <p>
+    I'm genuinely sorry, bro. ❤️<br>
+    Please don't stay angry with me!
+  </p>
+
+  <p>
+    Can we be normal idiots again? 😂🤝
+  </p>
+
+  <button id="yes" onclick="forgive()">
+    YES, I FORGIVE YOU 😎❤️
+  </button>
+
+  <button id="no">
+    NO 😤
+  </button>
+
+</div>
+
+<script>
+
+const no = document.getElementById("no");
+
+function moveButton() {
+  const x = Math.random() * (window.innerWidth - 120);
+  const y = Math.random() * (window.innerHeight - 70);
+
+  no.style.left = x + "px";
+  no.style.top = y + "px";
+}
+
+no.addEventListener("touchstart", moveButton);
+no.addEventListener("mouseover", moveButton);
+
+function forgive() {
+
+  document.getElementById("main").innerHTML = `
+    <div style="font-size:65px;">🎉🥳❤️</div>
+    <h1>YAYYYY, SAGAR!</h1>
+    <p>
+      I knew you couldn't stay angry forever! 😂
+    </p>
+    <p>
+      Sorry officially accepted. 🤝💙
+    </p>
+    <p>
+      <b>Friends again! 😎</b>
+    </p>
+  `;
+
+  for(let i = 0; i < 25; i++) {
+    createHeart();
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = Math.random() > 0.5 ? "❤️" : "💙";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.animationDuration = (2 + Math.random() * 4) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 6000);
+}
+
+setInterval(createHeart, 700);
+
+</script>
+
+</body>
+</html>
